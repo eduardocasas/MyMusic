@@ -1,0 +1,21 @@
+{% csrf_token %}
+<script type="text/javascript">
+    var MY_CURRENT_PATH = '{{ path }}',
+        MY_HOME_PATH    = '{{ home_path }}',
+        MY_SLUG         = '{{ my_slug }}';
+</script>
+<ul id="breadcrumb"> 
+{% for item in path_items %}
+    <li><a href="{{ item.url }}" class="action_button folder_action_button">{{ item.name }}</a></li>
+{% endfor %}
+</ul>
+<ul id="files">
+{% for item in files %}
+    <li><a data-length="{{ item.length }}" class="action_button file_action_button">{{ item.name }}</a></li>
+{% endfor %}
+</ul>
+<ul id="folders">
+{% for item in folders %}
+    <li><a href="/{{ my_slug }}?path={{ path }}/{{ item }}" class="action_button folder_action_button">{{ item }}</a></li>
+{% endfor %}
+</ul>

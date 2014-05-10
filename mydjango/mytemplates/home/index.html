@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}{% for item in path_items_name %}{{ item }} | {% endfor %}MyMusic {% endblock %}
+{% block description %}MyCollection {% for item in path_items_name %}| {{ item }}{% endfor %}{% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ STATIC_URL }}css/home.css" type="text/css">{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ STATIC_URL }}javascript/home.js"></script>
+{% endblock %}
+{% block content %}
+<sidebar id="sidebar">
+    <div id="music_player">
+        <header>
+            <h1>MyPlayer</h1>
+        </header>
+        <section>
+            <ul id="player_buttons">
+                <li><button id="player_button_previous" title="previous"></button></li>
+                <li><button id="player_button_back" title="back"></button></li>
+                <li><button id="player_button_stop" title="stop"></button></li>
+                <li><button id="player_button_pause" title="pause"></button></li>
+                <li><button id="player_button_play" title="play"></button></li>
+                <li><button id="player_button_forward" title="forward"></button></li>
+                <li><button id="player_button_next" title="next"></button></li>
+            </ul>
+            <span id="progress_bar"><span id="inner_progress_bar"></span></span>
+            <span id="song_duration">0:00</span>
+            <ul id="playlist"></ul>
+        </section>
+    </div>
+</sidebar>
+<section id="section_wrapper"> 
+{% include 'home/partial.html' %}
+</section>
+{% endblock %}

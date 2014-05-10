@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}MyMusic{% endblock %}</title>
+        <meta name="description" content="{% block description %}{% endblock %}">
+        <meta name="keywords" content="{% block keywords %}{% endblock %}">
+        <meta name="author" content="eduardo.casas.lopez@gmail.com">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" type="text/css">
+        {% block css %}{% endblock %}
+        <link rel="icon" href="{{ STATIC_URL }}images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.png" type="image/x-icon">
+        <script type="text/javascript" src="{{ STATIC_URL }}vendor/bower_components/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}javascript/main.js"></script>
+        {% block javascript %}{% endblock %}
+    </head>
+    <body>
+        <div id="body_wrapper">
+        {% block header %}
+            <header id="main_header_wrapper">
+            <span class="loading" id="main_loading"></span>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" id="logout_button">logout</a>
+            {% endif %}
+                <h1 id="header_home_link"><a href="{% url 'home' %}">MyMusic</a></h1>
+                <button id="#scroll_top_button"></button>            
+            </header>
+        {% endblock %}
+            <div id="main_wrapper">{% block content %}{% endblock %}</div>
+        {% block footer %}
+            <footer id="main_footer_wrapper">
+                <span id="eduardocasas">Author: <a href="http://www.eduardocasas.com" target="_blank">eduardo casas</a></span>
+                <ul>
+                    <li class="separator">License: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported</a></li>
+                    <li class="separator">Powered by <a href="https://www.djangoproject.com/" target="_blank">Django</a></li>
+                    <li>Fork me on <a href="https://github.com/eduardocasas/MyMusic">GitHub</a></li>
+                </ul>
+            </footer>
+        {% endblock %}
+        </div>
+    </body>
+</html>

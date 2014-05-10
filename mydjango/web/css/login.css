@@ -1,0 +1,18 @@
+#login_form table
+{
+    margin: 100px auto 40px;
+    width: 200px;
+}
+    #login_form th
+    {
+        text-align: right;
+        padding: 10px 5px;
+    }
+    #login_form td
+    {
+        padding: 10px 0;
+    }
+#submit_login_form
+{
+    margin: 20px auto;
+}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block description %}Login MyCollection{% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ STATIC_URL }}css/login.css" type="text/css">{% endblock %}
+{% block javascript %}
+<script type="text/javascript" src="{{ STATIC_URL }}javascript/login.js"></script>
+{% endblock %}
+{% block content %}
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+    <form action="#" method="post" id="login_form">
+        <table>
+            {{ form.as_table }}
+        </table>
+        {% csrf_token %}
+        <input type="submit" value="submit" class="submit_button" id="submit_login_form">
+        <span class="loading"></span>
+    </form>
+{% endblock %}
